@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import mysql.connector
 
 
@@ -7,6 +7,9 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     return "¡Hola, Flask!"
+def index():
+    return render_template('index.html')
+
 
 
 # Configuración de la conexión a MySQL
