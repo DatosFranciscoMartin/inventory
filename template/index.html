@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Tablas</title>
+</head>
+<body>
+    <h1>Consulta de Tablas</h1>
+    
+    <form action="/obtener_datos" method="get">
+        <label for="tabla">Selecciona una tabla:</label>
+        <select name="tabla" id="tabla">
+            <option value="Sitios">Sitios</option>
+            <option value="Usuarios">Usuarios</option>
+            <option value="Productos">Productos</option>
+            <!-- Agrega aquí más opciones según las tablas que tengas en tu base de datos -->
+        </select>
+        
+        <button type="submit">Consultar</button>
+    </form>
+    
+    <div id="resultados"></div>
+    
+    <script>
+        // Si quieres mostrar los resultados en la misma página sin recargarla
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const tabla = document.getElementById('tabla').value;
+            fetch(`/obtener_datos?tabla=${tabla}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultadosHTML = '<ul>';
+                    data.forEach(row => {
+                        resultadosHTML += '<li>' + JSON.stringify(row) + '</li>';
+                    });
+                    resultadosHTML += '</ul>';
+                    document.getElementById('resultados').innerHTML = resultadosHTML;
+                })
+                .catch(error => {
+                    console.error('Error al obtener los datos:', error);
+                });
+        });
+    </script>
+</body>
+</html>
