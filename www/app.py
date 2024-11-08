@@ -4,12 +4,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-
 # Configuración de la conexión a MySQL
 def get_db_connection():
     connection = mysql.connector.connect(
@@ -19,6 +13,10 @@ def get_db_connection():
         database="InventarioEquipos"
     )
     return connection
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 # Ejemplo de ruta para obtener datos
 @app.route('/obtener_datos', methods=['GET'])
