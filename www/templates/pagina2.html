@@ -1,8 +1,25 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-{% block title %}Página 2{% endblock %}
+    <h1>Página 2</h1>
+    <p>Bienvenido a la Página 2. Aquí encontrarás contenido relevante sobre el tema 2.</p>
 
-{% block content %}
-<h1>Bienvenido a la Página 2</h1>
-<p>Contenido de la página 2.</p>
-{% endblock %}
+    <div class="dropdown">
+        <button class="dropbtn">Navegar</button>
+        <div class="dropdown-content">
+            <a href="/">Inicio</a>
+            <a href="/pagina1">Página 1</a>
+            <a href="/pagina2">Página 2</a>
+            <a href="/pagina3">Página 3</a>
+        </div>
+    </div>
+
+</body>
+</html>
