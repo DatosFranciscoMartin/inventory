@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icono_datos.ico') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Aplicación Flask</title>
+    <title>Navegación</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Bienvenido a mi aplicación Flask</h1>
-    <p>Esta es una aplicación web creada con Flask y HTML.</p>
+
+    <h1>Bienvenido a la Página de Navegación</h1>
+
+    <div class="dropdown">
+        <button class="dropbtn">Navegar</button>
+        <div class="dropdown-content">
+            <a href="/">Inicio</a>
+            <a href="/pagina1">Página 1</a>
+            <a href="/pagina2">Página 2</a>
+            <a href="/pagina3">Página 3</a>
+        </div>
+    </div>
+
 </body>
 </html>
