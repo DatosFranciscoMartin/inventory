@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas de Base de Datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Consultas sobre la Base de Datos</h1>
+
+    <form method="POST" action="{{ url_for('consultar') }}">
+        <label for="consulta">Seleccione el tipo de consulta:</label>
+        <select name="consulta" id="consulta">
+            <option value="clientes">Ver todos los clientes</option>
+            <option value="sitios">Ver todos los sitios</option>
+            <option value="equipos">Ver todos los equipos</option>
+            <option value="contactos">Ver todos los contactos</option>
+        </select>
+        <button type="submit">Consultar</button>
+    </form>
+
+    {% if resultados %}
+        <h2>Resultados:</h2>
+        <table>
+            <thead>
+                <tr>
+                    {% for key in resultados[0].keys() %}
+                        <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for resultado in resultados %}
+                    <tr>
+                        {% for value in resultado.values() %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
