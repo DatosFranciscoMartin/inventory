@@ -1,6 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify
+from config import Config
+from modelos import db, Cliente, Contacto, Sitio, Equipo  # Importa los modelos necesarios
 
 app = Flask(__name__)
+app.config.from_object(Config)
+
+# Inicializa la base de datos
+db.init_app(app)
+
 
 @app.route('/')
 def home():
