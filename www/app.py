@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from config import Config
 from modelos import db, Cliente, Contacto, Sitio, Equipo  # Importa los modelos necesarios
 
