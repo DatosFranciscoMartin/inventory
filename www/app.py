@@ -19,5 +19,9 @@ def pagina2():
 def pagina3():
     return render_template('pagina3.html')
 
+@app.route('/pagina_base')
+def pagina_base():
+    return render_template('pagina_base.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

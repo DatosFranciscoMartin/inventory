@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Título por Defecto{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
+    <header>
+        <h1>{% block header %}Título de la Página{% endblock %}</h1>
+    </header>
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Navegar</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('home') }}">Inicio</a>
+                <a href="{{ url_for('pagina1') }}">Página 1</a>
+                <a href="{{ url_for('pagina2') }}">Página 2</a>
+                <a href="{{ url_for('pagina3') }}">Página 3</a>
+                <a href="{{ url_for('pagina_base') }}">Página extendida de la base</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}
+        <p>Este es el contenido principal.</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <p>&copy; Mi Sitio Web</p>
+        {% endblock %}
+    </footer>
+
+</body>
+</html>
