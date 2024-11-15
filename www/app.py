@@ -14,7 +14,7 @@ def home():
     return render_template('index.html')
 
 # Rutas adicionales
-@app.route('/pagina_clientes')
+@app.route('/pagina1')
 def pagina1():
     return render_template('pagina1.html')
 
