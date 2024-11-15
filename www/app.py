@@ -40,9 +40,20 @@ def consultar():
     resultados = []
 
     if consulta == 'clientes':
-        resultados = [{'id': cliente.id, 'nombre': cliente.nombre} for cliente in Cliente.query.all()]
+        resultados = [
+            {
+                'id': cliente.id, 
+                'nombre': cliente.nombre
+            }
+            for cliente in Cliente.query.all()]
     elif consulta == 'sitios':
-        resultados = [{'id': sitio.id, 'nombre': sitio.nombre, 'ubicacion': sitio.ubicacion} for sitio in Sitio.query.all()]
+        resultados = [
+            {
+                'id': sitio.id, 
+                'nombre': sitio.nombre, 
+                'ubicacion': sitio.ubicacion
+            } 
+            for sitio in Sitio.query.all()]
     elif consulta == 'equipos':
         resultados = [
             {
