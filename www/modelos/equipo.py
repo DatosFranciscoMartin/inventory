@@ -13,5 +13,5 @@ class Equipo(db.Model):
     fecha_fin = db.Column('FechaFin', db.Date)
     renovacion = db.Column('Renovacion', db.Date)
     contacto_id = db.Column('ContactoId', db.Integer, db.ForeignKey('Contactos.Id'))
-    sitio = db.relationship('Sitio', backref='equipos')
-    contacto = db.relationship('Contacto', backref='equipos')
+    #sitio = db.relationship('Sitio', backref='equipos')
+    #contacto = db.relationship('Contacto', backref='equipos')
