@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de equipos</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>Gestión de Equipos</h1>
+{% extends "base.html" %}
+
+{% block title %}Formulario de equipos{% endblock %}
+
+{% block header %}Formulario de equipos{% endblock %}
+
+{% block content %}
+<h1>Gestión de Equipos</h1>
     <form method="post">
         {{ form.hidden_tag() }}
         <div>
@@ -50,5 +48,4 @@
             <li>{{ equipo.marca }} - {{ equipo.proveedor }} (Nº Serie: {{ equipo.nserie }})</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
